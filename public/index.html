@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUMA — Hungry For More | Nitro Elite Speed Series</title>
+  <meta name="description" content="The puma doesn't train. It hunts. Nitro Elite Speed Series — the lightest carbon plate shoe PUMA has ever built.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,400i&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            anton: ["Anton", "sans-serif"],
+            satoshi: ["Satoshi", "sans-serif"],
+            oswald: ["Oswald", "sans-serif"],
+            cormorant: ["Cormorant Garamond", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./shared.css">
+</head>
+<body class="bg-white text-[var(--text-primary)]">
+  <div id="preloader" class="preloader" role="status" aria-label="Loading">
+    <div class="flex flex-col items-center gap-5">
+      <img src="./assets/puma-logo-png-26.webp" alt="PUMA" class="preloader-logo w-[120px] brightness-0" onerror="this.outerHTML='<div class=&quot;preloader-logo font-display text-5xl tracking-[0.16em]&quot;>PUMA</div>'">
+      <div class="h-[2px] w-[240px] bg-[rgba(45,90,27,0.15)]"><div class="preloader-bar h-full bg-[var(--brand-green)]"></div></div>
+      <p class="preloader-copy text-[11px] uppercase tracking-[0.22em] text-[var(--text-faint)]">Loading Experience</p>
+    </div>
+  </div>
+
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grainFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"></feTurbulence>
+      <feColorMatrix type="saturate" values="0"></feColorMatrix>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grainFilter)"></rect>
+  </svg>
+
+  <nav id="sticky-nav" class="glass" role="navigation" aria-label="Main navigation">
+    <div class="flex h-[52px] items-center justify-between px-5 md:h-[58px] md:px-7">
+      <a href="./index.html" class="flex items-center gap-3 text-white">
+        <img id="nav-logo-img" src="./assets/puma-logo-png-26.webp" alt="PUMA" class="h-[32px] md:h-[36px] brightness-0 invert" onerror="this.replaceWith((function(){var s=document.createElement('span');s.className='nav-logo-text font-display text-xl tracking-[0.18em]';s.textContent='PUMA';return s;})())">
+      </a>
+      <div class="hidden items-center gap-7 lg:flex">
+        <a class="nav-link text-[12px] font-medium uppercase tracking-[0.14em] text-white" href="./men.html">Men</a>
+        <a class="nav-link text-[12px] font-medium uppercase tracking-[0.14em] text-white" href="./women.html">Women</a>
+        <a class="nav-link text-[12px] font-medium uppercase tracking-[0.14em] text-white" href="./running.html">Running</a>
+        <a class="nav-link text-[12px] font-medium uppercase tracking-[0.14em] text-white" href="./collections.html">Collections</a>
+        <a class="nav-link text-[12px] font-medium uppercase tracking-[0.14em] text-white" href="./stories.html">Stories</a>
+      </div>
+      <div class="hidden items-center gap-3 md:flex">
+        <button id="search-btn" class="nav-icon-btn flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white" aria-label="Open search">
+          <span class="text-lg">⌕</span>
+        </button>
+        <button id="cart-btn" class="nav-icon-btn relative flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white" aria-label="Open cart">
+          <span class="text-lg">◎</span>
+          <span id="cart-badge" style="display:none" class="absolute -right-1 -top-1 h-5 min-w-[20px] items-center justify-center rounded-full bg-[var(--brand-green)] px-1 text-[10px] font-bold text-white"></span>
+        </button>
+        <a href="#product-grid" class="btn-pill rounded-full bg-white px-4 py-3 text-[var(--text-primary)]">Shop Now</a>
+      </div>
+      <button id="hamburger" class="flex flex-col gap-[5.5px] text-white md:hidden" aria-label="Open menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-nav-overlay" class="flex flex-col bg-[var(--brand-green)] px-6 pb-10 pt-24">
+    <button id="mobile-nav-close" class="mb-10 self-end rounded-full border border-white/20 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white" aria-label="Close menu">Close</button>
+    <div class="flex flex-1 flex-col justify-center gap-5">
+      <a class="mobile-link font-display text-5xl uppercase text-white" href="./men.html">Men</a>
+      <a class="mobile-link font-display text-5xl uppercase text-white" href="./women.html">Women</a>
+      <a class="mobile-link font-display text-5xl uppercase text-white" href="./running.html">Running</a>
+      <a class="mobile-link font-display text-5xl uppercase text-white" href="./collections.html">Collections</a>
+      <a class="mobile-link font-display text-5xl uppercase text-white" href="./stories.html">Stories</a>
+    </div>
+  </div>
+
+  <section class="relative z-[4] h-9 overflow-hidden bg-[#0A0A0A]" aria-label="Announcements">
+    <div class="announce-track flex h-full items-center gap-6 whitespace-nowrap px-4 text-[11px] uppercase tracking-[0.06em] text-white">
+      <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">↗</span> Free Next-Day Delivery On Orders Above ₹3,499</span>
+      <span class="ticker-dot"></span>
+      <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">◌</span> 30-Day Hassle-Free Returns</span>
+      <span class="ticker-dot"></span>
+      <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">★</span> 100% Satisfaction Guarantee</span>
+      <span class="ticker-dot"></span>
+      <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">▣</span> Secure Checkout · 256-Bit Encryption</span>
+      <span class="ticker-dot"></span>
+      <span aria-hidden="true" class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">↗</span> Free Next-Day Delivery On Orders Above ₹3,499</span>
+      <span class="ticker-dot" aria-hidden="true"></span>
+      <span aria-hidden="true" class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">◌</span> 30-Day Hassle-Free Returns</span>
+      <span class="ticker-dot" aria-hidden="true"></span>
+      <span aria-hidden="true" class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">★</span> 100% Satisfaction Guarantee</span>
+      <span class="ticker-dot" aria-hidden="true"></span>
+      <span aria-hidden="true" class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">▣</span> Secure Checkout · 256-Bit Encryption</span>
+    </div>
+  </section>
+
+  <main id="main-content" class="main-content">
+    <section id="hero-canvas-section" class="relative h-[500vh]">
+      <div id="hero-sticky" class="sticky top-0 h-screen overflow-hidden bg-[#0A0A0A]">
+        <canvas id="hero-canvas" class="h-full w-full"></canvas>
+        <div id="hero-text" class="pointer-events-none absolute inset-0 flex items-start justify-center pt-[42vh]">
+          <div class="flex w-full items-end justify-between px-[3vw]">
+            <span class="hero-word hero-reveal">HUNGRY</span>
+            <div class="flex flex-col items-end">
+              <span class="hero-word hero-reveal">FOR</span>
+              <span class="hero-word hero-reveal">MORE</span>
+            </div>
+          </div>
+        </div>
+        <div id="hero-brand-label" class="absolute bottom-8 left-6 rounded-full bg-white px-4 py-2 font-label text-[10px] uppercase tracking-[0.2em] text-[var(--text-primary)] opacity-0 md:left-10">Nitro Elite Series</div>
+        <div id="hero-speed-stat" class="absolute right-6 top-20 text-[12px] uppercase tracking-[0.16em] text-white/70 opacity-0 md:right-10">0–60 In 3 Strides</div>
+      </div>
+    </section>
+
+    <section class="h-14 overflow-hidden bg-[var(--brand-green)]">
+      <div class="marquee-track flex h-full items-center gap-12 whitespace-nowrap font-display text-[12px] uppercase tracking-[0.14em] text-white">
+        <span>Hungry For More · Born To Sprint · Never Caged · Built For The Hunt · Move Like Instinct · The Savanna Is Your Track</span>
+        <span aria-hidden="true">Hungry For More · Born To Sprint · Never Caged · Built For The Hunt · Move Like Instinct · The Savanna Is Your Track</span>
+        <span aria-hidden="true">Hungry For More · Born To Sprint · Never Caged · Built For The Hunt · Move Like Instinct · The Savanna Is Your Track</span>
+      </div>
+    </section>
+
+    <section id="product-intro" class="bg-white py-[clamp(80px,10vw,140px)]">
+      <div class="mx-auto grid max-w-[1320px] gap-14 px-5 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
+        <div class="flex flex-col justify-center">
+          <span class="mb-6 inline-flex w-fit rounded-full bg-[var(--brand-pale)] px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--brand-green)]">New Arrival — Spring 2026</span>
+          <h1 class="font-display text-[clamp(56px,9vw,120px)] uppercase leading-[0.9] tracking-[0.02em]">
+            <span class="word inline-block">Nitro</span>
+            <span class="word inline-block">Elite</span><br>
+            <span class="word inline-block">Speed</span>
+            <span class="word inline-block">Series</span>
+          </h1>
+          <p class="mt-6 max-w-[34rem] text-[17px] leading-[1.7] text-[var(--text-muted)]">Engineered from 11 years of biomechanics research. The lightest carbon plate shoe Puma has ever built.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#product-grid" class="btn-pill rounded-full bg-[var(--text-primary)] px-6 py-4 text-white">Shop Now</a>
+            <a href="#benefits-section" class="btn-pill rounded-full border border-[var(--hairline)] px-6 py-4 text-[var(--text-primary)]">Learn More</a>
+          </div>
+          <p class="mt-5 text-[11px] text-[var(--text-faint)]">Free delivery on orders above ₹3,499 · 30-day returns</p>
+        </div>
+        <div class="relative flex items-center justify-center overflow-hidden rounded-[32px] bg-[radial-gradient(ellipse_at_60%_50%,#E8F0E4_0%,transparent_68%)] p-10">
+          <div data-product-visual="obsidian" data-visual-class="product-image h-[420px] w-full max-w-[520px] object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.18)]" class="-rotate-6 -translate-y-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product-grid" class="bg-white px-0 pb-10">
+      <div class="grid gap-[2px] md:grid-cols-3">
+        <article class="product-card bg-white">
+          <div class="flex h-[58vh] min-h-[340px] items-center justify-center bg-[#F5F5F5] p-8">
+            <div data-product-visual="obsidian" data-visual-class="product-image h-full w-[70%] object-contain"></div>
+          </div>
+          <div class="border-t border-[var(--hairline)] px-7 pb-7 pt-7">
+            <p class="font-label text-[10px] uppercase tracking-[0.18em] text-[var(--brand-green)]">Running · Carbon Plate</p>
+            <h2 class="mt-3 text-[19px] font-bold">Nitro Elite Speed</h2>
+            <p class="mt-1 text-[13px] text-[var(--text-muted)]">Obsidian Black / Gold</p>
+            <div class="mt-6 flex items-center justify-between gap-4">
+              <span class="font-label text-[22px] font-bold">₹14,999</span>
+              <button class="add-to-cart-btn btn-pill rounded-full border border-[var(--text-primary)] px-4 py-3" data-product-id="obsidian">Add</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card bg-white">
+          <div class="flex h-[58vh] min-h-[340px] items-center justify-center bg-[#F5F5F5] p-8">
+            <div data-product-visual="arctic" data-visual-class="product-image h-full w-[70%] object-contain"></div>
+          </div>
+          <div class="border-t border-[var(--hairline)] px-7 pb-7 pt-7">
+            <p class="font-label text-[10px] uppercase tracking-[0.18em] text-[var(--brand-green)]">Running · Carbon Plate</p>
+            <h2 class="mt-3 text-[19px] font-bold">Nitro Elite Speed</h2>
+            <p class="mt-1 text-[13px] text-[var(--text-muted)]">Arctic White / Ice</p>
+            <div class="mt-6 flex items-center justify-between gap-4">
+              <span class="font-label text-[22px] font-bold">₹14,999</span>
+              <button class="add-to-cart-btn btn-pill rounded-full border border-[var(--text-primary)] px-4 py-3" data-product-id="arctic">Add</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card bg-white">
+          <div class="flex h-[58vh] min-h-[340px] items-center justify-center bg-[#F5F5F5] p-8">
+            <div data-product-visual="savanna" data-visual-class="product-image h-full w-[70%] object-contain"></div>
+          </div>
+          <div class="border-t border-[var(--hairline)] px-7 pb-7 pt-7">
+            <p class="font-label text-[10px] uppercase tracking-[0.18em] text-[var(--brand-green)]">Running · Carbon Plate</p>
+            <h2 class="mt-3 text-[19px] font-bold">Nitro Elite Speed</h2>
+            <p class="mt-1 text-[13px] text-[var(--text-muted)]">Savanna Gold / Earth</p>
+            <div class="mt-6 flex items-center justify-between gap-4">
+              <span class="font-label text-[22px] font-bold">₹14,999</span>
+              <button class="add-to-cart-btn btn-pill rounded-full border border-[var(--text-primary)] px-4 py-3" data-product-id="savanna">Add</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="benefits-section" class="section-pad bg-white">
+      <div class="mx-auto max-w-[1200px] px-5 text-center lg:px-10">
+        <p class="font-label text-[10px] uppercase tracking-[0.2em] text-[var(--brand-green)]">Why Nitro Elite</p>
+        <h2 class="mt-4 font-display text-[clamp(40px,6vw,72px)] uppercase leading-[0.92]">Engineered To Win.</h2>
+        <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <article class="benefit-card rounded-[28px] border border-[var(--hairline)] p-7 text-left">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--brand-pale)] text-2xl text-[var(--brand-green)]">↗</div>
+            <h3 class="mt-6 text-[17px] font-bold">Full-Length Carbon Plate</h3>
+            <p class="mt-3 text-[14px] leading-[1.6] text-[var(--text-muted)]">Aggressive propulsion geometry tuned to launch every stride forward.</p>
+          </article>
+          <article class="benefit-card rounded-[28px] border border-[var(--hairline)] p-7 text-left">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--brand-pale)] text-2xl text-[var(--brand-green)]">◔</div>
+            <h3 class="mt-6 text-[17px] font-bold">176g Ultra-Light</h3>
+            <p class="mt-3 text-[14px] leading-[1.6] text-[var(--text-muted)]">The lightest carbon plate shoe PUMA has ever made for race-day confidence.</p>
+          </article>
+          <article class="benefit-card rounded-[28px] border border-[var(--hairline)] p-7 text-left">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--brand-pale)] text-2xl text-[var(--brand-green)]">◎</div>
+            <h3 class="mt-6 text-[17px] font-bold">NITRO™ Elite Foam</h3>
+            <p class="mt-3 text-[14px] leading-[1.6] text-[var(--text-muted)]">Explosive cushioning with up to 87% energy return under speed load.</p>
+          </article>
+          <article class="benefit-card rounded-[28px] border border-[var(--hairline)] p-7 text-left">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--brand-pale)] text-2xl text-[var(--brand-green)]">⌁</div>
+            <h3 class="mt-6 text-[17px] font-bold">PWRTAPE Lockdown</h3>
+            <p class="mt-3 text-[14px] leading-[1.6] text-[var(--text-muted)]">Zero-slip support through corners, kick phases, and full-send finishes.</p>
+          </article>
+        </div>
+        <div class="mx-auto mt-12 grid max-w-[900px] gap-0 overflow-hidden rounded-full border border-[var(--hairline)] md:grid-cols-3">
+          <div class="flex items-center justify-center gap-3 px-5 py-5 text-[12px] font-medium uppercase tracking-[0.14em]"><span class="text-[var(--brand-green)]">⟳</span>30-Day Free Returns</div>
+          <div class="flex items-center justify-center gap-3 border-y border-[var(--hairline)] px-5 py-5 text-[12px] font-medium uppercase tracking-[0.14em] md:border-x md:border-y-0"><span class="text-[var(--brand-green)]">✓</span>Free Next-Day Delivery</div>
+          <div class="flex items-center justify-center gap-3 px-5 py-5 text-[12px] font-medium uppercase tracking-[0.14em]"><span class="text-[var(--brand-green)]">🔒</span>Free Next-Day Delivery</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-11 overflow-hidden border-y border-white/6 bg-[#0A0A0A]">
+      <div class="announce-track flex h-full items-center gap-10 whitespace-nowrap text-[12px] uppercase tracking-[0.12em] text-white/75">
+        <span><span class="text-[var(--brand-green)]">★</span> Worn By Olympic Gold Medalists</span>
+        <span><span class="text-[var(--brand-green)]">★</span> Trusted By 50+ World-Class Athletes</span>
+        <span><span class="text-[var(--brand-green)]">★</span> #1 Carbon Plate In Marathon Podiums 2025</span>
+        <span><span class="text-[var(--brand-green)]">★</span> “The Fastest Shoe I&apos;ve Ever Raced In” — Lina Chebet</span>
+        <span><span class="text-[var(--brand-green)]">★</span> 11 Years Of Biomechanics R&amp;D</span>
+        <span aria-hidden="true"><span class="text-[var(--brand-green)]">★</span> Worn By Olympic Gold Medalists</span>
+        <span aria-hidden="true"><span class="text-[var(--brand-green)]">★</span> Trusted By 50+ World-Class Athletes</span>
+        <span aria-hidden="true"><span class="text-[var(--brand-green)]">★</span> #1 Carbon Plate In Marathon Podiums 2025</span>
+      </div>
+    </section>
+
+    <section id="forest-section" class="relative h-screen overflow-hidden bg-[#0A0A0A]">
+      <div id="forest-bg" class="parallax-bg absolute inset-0 h-[120%]">
+        <img src="./assets/Puma in Tall Grass.png" alt="Golden savanna landscape at sunset" class="scene-image" onerror="this.style.display='none'; this.parentNode.classList.add('scene-fallback-savanna')">
+      </div>
+      <div class="grass-overlay absolute inset-0"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.68),rgba(0,0,0,0.12)_62%,rgba(0,0,0,0.24)_100%),linear-gradient(180deg,rgba(20,10,6,0.06)_0%,rgba(0,0,0,0.64)_100%)]"></div>
+      <div id="forest-content" class="absolute bottom-20 left-4 z-10 max-w-[560px] px-4 md:left-16 md:px-0">
+        <div class="premium-divider mb-8"></div>
+        <p class="mb-5 font-label text-[10px] uppercase tracking-[0.22em] text-[var(--brand-green)]">The Golden Hour</p>
+        <h2 class="font-display text-[clamp(48px,7vw,96px)] uppercase leading-[0.92] text-white">Run Where<br>The Light<br>Stretches.</h2>
+        <p class="mt-6 max-w-[30rem] font-editorial text-[20px] font-light italic leading-[1.35] text-white/80 md:text-[22px]">Long shadows, dry grass, open horizon. The savanna mood should feel calm for one second, then electric the next.</p>
+        <a href="#final-cta" class="btn-pill mt-8 inline-flex rounded-full border border-white/25 px-5 py-4 text-white">Find Your Feel →</a>
+      </div>
+    </section>
+
+    <section id="snarl-section" class="grid min-h-[70vh] bg-[#0A0A0A] lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="relative min-h-[360px] overflow-hidden shadow-[inset_-60px_0_80px_rgba(10,10,10,0.8)]">
+        <video autoplay loop muted playsinline class="h-full w-full object-cover" poster="./assets/Puma in Tall Grass.png" onplaying="this.nextElementSibling.style.display='none'" onerror="this.nextElementSibling.style.display='flex'">
+          <source src="./assets/Snarl.mp4" type="video/mp4">
+        </video>
+        <div class="video-fallback absolute inset-0 flex items-center justify-center text-center font-display text-4xl uppercase tracking-[0.16em] text-white">Hungry Looks Like This</div>
+      </div>
+      <div id="snarl-copy" class="flex items-center px-5 py-16 md:px-10 lg:px-16">
+        <div class="max-w-[520px]">
+          <div class="premium-divider mb-8"></div>
+          <h2 class="font-display text-[clamp(44px,5vw,76px)] uppercase leading-[0.92] text-white">This Is What<br>Hungry Looks<br>Like.</h2>
+          <p class="mt-6 text-[16px] leading-[1.7] text-white/55">The puma doesn&apos;t negotiate with terrain. It doesn&apos;t ask permission from gravity. Neither should your next personal best.</p>
+          <a href="#product-grid" class="btn-pill mt-8 inline-flex rounded-full border border-[var(--brand-green)] px-5 py-4 text-[var(--brand-green)] hover:bg-[var(--brand-green)] hover:text-white">Shop The Series</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="jungle-section" class="relative h-[80vh] overflow-hidden bg-[#0A0A0A]">
+      <div id="jungle-bg" class="parallax-bg absolute inset-0 h-[130%]">
+        <img src="./assets/Pumas in Jungle.png" alt="Puma stalking through tall grass" class="scene-image" onerror="this.style.display='none'; this.parentNode.classList.add('scene-fallback-hunt')">
+      </div>
+      <div class="grass-overlay absolute inset-0 opacity-70"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.2)_50%,rgba(0,0,0,0.42)_100%),linear-gradient(90deg,rgba(8,8,8,0.18)_0%,rgba(8,8,8,0.02)_36%,rgba(8,8,8,0.32)_100%)]"></div>
+      <div id="jungle-content" class="absolute bottom-12 left-5 z-10 max-w-[560px] md:left-14">
+        <p class="font-label text-[10px] uppercase tracking-[0.2em] text-[var(--brand-green)]">Instinct Mode</p>
+        <h2 class="mt-4 font-display text-[clamp(40px,6vw,80px)] uppercase leading-[0.92] text-white">Lower.<br>Quieter.<br>Faster.</h2>
+        <p class="mt-4 max-w-[28rem] font-editorial text-[20px] font-light italic text-white/70">The second image nails the tension we wanted here: almost still, fully focused, and a split second away from motion.</p>
+      </div>
+    </section>
+
+    <section id="athlete-section" class="bg-[#0A0A0A] px-5 py-24 text-white md:px-10">
+      <div class="mx-auto max-w-[1260px]">
+        <p class="font-label text-[10px] uppercase tracking-[0.2em] text-[var(--brand-green)]">Trusted By Champions</p>
+        <div class="mt-4 flex items-end justify-between gap-5">
+          <h2 class="font-display text-[clamp(40px,6vw,72px)] uppercase leading-[0.92]">The Athletes</h2>
+          <div class="hidden items-center gap-3 md:flex">
+            <button id="athlete-prev" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/50 hover:text-white" aria-label="Previous">←</button>
+            <button id="athlete-next" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/50 hover:text-white" aria-label="Next">→</button>
+          </div>
+        </div>
+        <div id="athlete-carousel" class="mt-10 flex snap-x snap-mandatory gap-[2px] overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <article class="athlete-card relative overflow-hidden rounded-[28px] bg-[#151515]">
+            <div class="athlete-card-bg absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(45,90,27,0.35),transparent_30%),linear-gradient(135deg,#111_0%,#2b2b2b_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.85)_100%)]"></div>
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-6">
+              <div>
+                <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--brand-green)]">India National Sprint Team</p>
+                <h3 class="mt-2 font-display text-[26px] uppercase">Arjun Mehta</h3>
+                <p class="mt-2 font-editorial text-[15px] italic text-white/75">“I broke my 100m PB by 0.3 seconds. I credit the plate.”</p>
+              </div>
+              <span class="rounded-full bg-[var(--brand-green)] px-4 py-3 font-label text-[15px] font-bold text-white">9.87s PB</span>
+            </div>
+          </article>
+          <article class="athlete-card relative overflow-hidden rounded-[28px] bg-[#151515]">
+            <div class="athlete-card-bg absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(45,90,27,0.35),transparent_30%),linear-gradient(135deg,#0c0c0c_0%,#3a2719_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.85)_100%)]"></div>
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-6">
+              <div>
+                <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--brand-green)]">Kenya Marathon Team</p>
+                <h3 class="mt-2 font-display text-[26px] uppercase">Lina Chebet</h3>
+                <p class="mt-2 font-editorial text-[15px] italic text-white/75">“The lightest carbon shoe I&apos;ve ever raced in. Nothing comes close.”</p>
+              </div>
+              <span class="rounded-full bg-[var(--brand-green)] px-4 py-3 font-label text-[15px] font-bold text-white">2:18:04</span>
+            </div>
+          </article>
+          <article class="athlete-card relative overflow-hidden rounded-[28px] bg-[#151515]">
+            <div class="athlete-card-bg absolute inset-0 bg-[radial-gradient(circle_at_60%_20%,rgba(45,90,27,0.35),transparent_30%),linear-gradient(135deg,#121212_0%,#203449_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(0,0,0,0.85)_100%)]"></div>
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-6">
+              <div>
+                <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--brand-green)]">European 800m Champion</p>
+                <h3 class="mt-2 font-display text-[26px] uppercase">Sofia Lindgren</h3>
+                <p class="mt-2 font-editorial text-[15px] italic text-white/75">“Sprint spikes with marathon cushion. Unfair advantage.”</p>
+              </div>
+              <span class="rounded-full bg-[var(--brand-green)] px-4 py-3 font-label text-[15px] font-bold text-white">1:56.3</span>
+            </div>
+          </article>
+        </div>
+        <div class="athlete-dots mt-8 flex items-center justify-center gap-3">
+          <button class="athlete-dot active h-2 w-2 rounded-full bg-white/35 transition-all" aria-label="Go to athlete 1"></button>
+          <button class="athlete-dot h-2 w-2 rounded-full bg-white/35 transition-all" aria-label="Go to athlete 2"></button>
+          <button class="athlete-dot h-2 w-2 rounded-full bg-white/35 transition-all" aria-label="Go to athlete 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="essentials" class="section-pad bg-[#F5F5F5] px-5 md:px-10">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p class="font-label text-[10px] uppercase tracking-[0.2em] text-[var(--brand-green)]">Curated Selection</p>
+            <h2 class="mt-4 font-display text-[clamp(40px,6vw,72px)] uppercase leading-[0.92]">The Essentials</h2>
+          </div>
+          <a href="./collections.html" class="hidden text-sm uppercase tracking-[0.16em] text-[var(--text-primary)] md:block">View All →</a>
+        </div>
+        <div class="grid gap-[2px] md:grid-cols-3">
+          <article class="essentials-card relative h-[520px] overflow-hidden rounded-[28px]">
+            <div class="editorial-image absolute inset-0 bg-[linear-gradient(135deg,#c2b691_0%,#7f6f4d_55%,#40351f_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(0,0,0,0.82)_100%)]"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div data-product-visual="savanna" data-visual-class="essentials-shoe h-[250px] w-[60%] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.3)]"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-7 text-white">
+              <div>
+                <h3 class="text-[17px] font-bold">Savanna Capsule Racer</h3>
+                <p class="mt-2 text-[13px] text-white/65">₹14,999</p>
+              </div>
+              <button class="add-to-cart-btn text-[12px] uppercase tracking-[0.18em]" data-product-id="savanna">Quick Add →</button>
+            </div>
+          </article>
+          <article class="essentials-card relative h-[520px] overflow-hidden rounded-[28px]">
+            <div class="editorial-image absolute inset-0 bg-[linear-gradient(135deg,#111_0%,#28313c_48%,#090909_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(0,0,0,0.82)_100%)]"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div data-product-visual="obsidian" data-visual-class="essentials-shoe h-[250px] w-[60%] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.3)]"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-7 text-white">
+              <div>
+                <h3 class="text-[17px] font-bold">Midnight Track Pack</h3>
+                <p class="mt-2 text-[13px] text-white/65">₹14,999</p>
+              </div>
+              <button class="add-to-cart-btn text-[12px] uppercase tracking-[0.18em]" data-product-id="obsidian">Quick Add →</button>
+            </div>
+          </article>
+          <article class="essentials-card relative h-[520px] overflow-hidden rounded-[28px]">
+            <div class="editorial-image absolute inset-0 bg-[linear-gradient(135deg,#35513a_0%,#4a8450_45%,#1b1f18_100%)]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(0,0,0,0.82)_100%)]"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div data-product-visual="arctic" data-visual-class="essentials-shoe h-[250px] w-[60%] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.3)]"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-7 text-white">
+              <div>
+                <h3 class="text-[17px] font-bold">Turf Interval Edition</h3>
+                <p class="mt-2 text-[13px] text-white/65">₹14,999</p>
+              </div>
+              <button class="add-to-cart-btn text-[12px] uppercase tracking-[0.18em]" data-product-id="arctic">Quick Add →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sustainability" class="grid min-h-[180px] items-center bg-[var(--brand-green)] px-5 py-8 text-center text-white md:grid-cols-4 md:px-10">
+      <div class="border-white/15 py-4 md:border-r">
+        <div class="stat-counter text-[clamp(36px,5vw,56px)]" data-target="72" data-suffix="%">0%</div>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-white/60">Recycled Materials</p>
+      </div>
+      <div class="border-white/15 py-4 md:border-r">
+        <div class="stat-counter text-[clamp(36px,5vw,56px)]" data-target="2028">0</div>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-white/60">Carbon Neutral By</p>
+      </div>
+      <div class="border-white/15 py-4 md:border-r">
+        <div class="stat-counter text-[clamp(36px,5vw,56px)]" data-target="100" data-suffix="%">0%</div>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-white/60">Recycled Packaging</p>
+      </div>
+      <div class="py-4">
+        <div class="stat-counter text-[clamp(36px,5vw,56px)]">B Corp</div>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-white/60">Certified 2025</p>
+      </div>
+    </section>
+
+    <section id="final-cta" class="section-pad bg-[#0A0A0A] px-5 text-white md:px-10">
+      <div class="mx-auto grid max-w-[1280px] items-center gap-12 lg:grid-cols-2">
+        <div class="flex justify-center">
+          <div data-product-visual="obsidian" data-visual-class="h-[320px] w-[85%] max-w-[500px] object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.35)]"></div>
+        </div>
+        <div>
+          <p class="font-label text-[10px] uppercase tracking-[0.2em] text-[var(--brand-green)]">Your Next PB Starts Here</p>
+          <h2 class="mt-4 font-display text-[clamp(40px,5vw,72px)] uppercase leading-[0.95]">Don&apos;t Just<br>Train.<br>Hunt.</h2>
+          <p class="mt-6 max-w-[44ch] text-[16px] leading-[1.7] text-white/55">Built for runners who want carbon-plate aggression without sacrificing long-run cushioning. It&apos;s equal parts race weapon and instinctive extension.</p>
+          <p class="mt-4 max-w-[44ch] text-[16px] leading-[1.7] text-white/55">Join 50+ Olympic and World Championship athletes already racing in Nitro Elite Speed and find out what your next personal best feels like.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#product-grid" class="btn-pill rounded-full bg-[var(--brand-green)] px-6 py-4 text-white">Shop Now — ₹14,999</a>
+            <a href="#benefits-section" class="btn-pill rounded-full border border-white/20 px-6 py-4 text-white">See Technology →</a>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-5 text-[11px] uppercase tracking-[0.16em] text-white/50">
+            <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">✓</span>Free Returns</span>
+            <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">↗</span>Next-Day Delivery</span>
+            <span class="inline-flex items-center gap-2"><span class="text-[var(--brand-green)]">🔒</span>Secure Checkout</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="email-section" class="bg-white px-5 py-[clamp(100px,14vw,200px)]">
+      <div class="mx-auto max-w-[600px] text-center">
+        <span class="inline-flex rounded-full bg-[var(--brand-pale)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-[var(--brand-green)]">Join The Pack</span>
+        <h2 class="mt-6 font-display text-[clamp(48px,8vw,96px)] uppercase leading-[0.92]">First To Run.<br>First To Know.</h2>
+        <p class="mt-5 font-editorial text-[20px] font-light italic text-[var(--text-muted)]">New drops. Athlete stories. Training intel.</p>
+        <form id="email-form" class="mx-auto mt-10 flex max-w-[520px] flex-col gap-5 sm:flex-row">
+          <input type="email" required aria-label="Email address" placeholder="Email address" class="min-w-0 flex-1 border-b-[1.5px] border-[var(--text-primary)] bg-transparent px-1 py-4 text-[15px] outline-none focus:border-[var(--brand-green)]">
+          <button class="btn-pill rounded-full bg-[var(--brand-green)] px-8 py-4 text-white">Join</button>
+        </form>
+        <div id="email-success" class="hidden items-center justify-center gap-3 rounded-full bg-[var(--brand-pale)] px-6 py-4 text-[var(--brand-green)]">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-green)] text-white">✓</span>
+          <span>You&apos;re in. Welcome to the pack.</span>
+        </div>
+        <p class="mt-5 text-[10px] text-[var(--text-faint)]">By joining you agree to our Privacy Policy. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="overflow-hidden bg-[#0A0A0A] px-5 text-white md:px-10">
+    <div class="border-t border-[#1C1C1C] pt-[clamp(72px,10vw,140px)]">
+      <div class="mx-auto max-w-[1280px]">
+        <p class="font-label text-[10px] uppercase tracking-[0.22em] text-[var(--brand-green)]">Hungry For More — Since 1948</p>
+        <h2 class="mt-5 font-display text-[clamp(52px,10vw,148px)] uppercase leading-[0.88]">Made<br>For The<br>Hunt.</h2>
+        <div class="grid gap-10 pb-16 pt-[clamp(60px,7vw,96px)] md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.18em] text-[#3A3A3A]">Shop</p>
+            <div class="mt-5 space-y-3">
+              <a class="footer-link block text-[13px] text-[#5A5A5A]" href="./men.html">Men</a>
+              <a class="footer-link block text-[13px] text-[#5A5A5A]" href="./women.html">Women</a>
+              <a class="footer-link block text-[13px] text-[#5A5A5A]" href="./running.html">Running</a>
+              <a class="footer-link block text-[13px] text-[#5A5A5A]" href="./collections.html">Collections</a>
+              <a class="footer-link block text-[13px] text-[#5A5A5A]" href="./stories.html">Stories</a>
+            </div>
+          </div>
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.18em] text-[#3A3A3A]">Company</p>
+            <div class="mt-5 space-y-3 text-[13px] text-[#5A5A5A]">
+              <a class="footer-link block" href="#">About PUMA</a>
+              <a class="footer-link block" href="#">Careers</a>
+              <a class="footer-link block" href="#">Sustainability</a>
+              <a class="footer-link block" href="#">Press Room</a>
+              <a class="footer-link block" href="#">Investors</a>
+            </div>
+          </div>
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.18em] text-[#3A3A3A]">Support</p>
+            <div class="mt-5 space-y-3 text-[13px] text-[#5A5A5A]">
+              <a class="footer-link block" href="#">Track Order</a>
+              <a class="footer-link block" href="#">Returns &amp; Exchanges</a>
+              <a class="footer-link block" href="#">Size Guide</a>
+              <a class="footer-link block" href="#">Contact Us</a>
+              <a class="footer-link block" href="#">FAQ</a>
+            </div>
+          </div>
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.18em] text-[#3A3A3A]">Follow</p>
+            <div class="mt-5 space-y-3 text-[13px] text-[#5A5A5A]">
+              <a class="footer-link flex items-center gap-3" href="#"><span class="social-pill flex h-8 w-8 items-center justify-center rounded-full border border-[#2A2A2A]">◎</span>Instagram</a>
+              <a class="footer-link flex items-center gap-3" href="#"><span class="social-pill flex h-8 w-8 items-center justify-center rounded-full border border-[#2A2A2A]">▶</span>YouTube</a>
+              <a class="footer-link flex items-center gap-3" href="#"><span class="social-pill flex h-8 w-8 items-center justify-center rounded-full border border-[#2A2A2A]">↗</span>Strava</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 border-t border-[#141414] py-7 text-[12px] text-[#4A4A4A] md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-3">
+            <img src="./assets/puma-logo-png-26.webp" alt="PUMA" class="h-[22px] opacity-25 brightness-0 invert" onerror="this.replaceWith((function(){var s=document.createElement('span');s.className='font-display text-base tracking-[0.16em] opacity-25';s.textContent='PUMA';return s;})())">
+            <span>© 2026 PUMA SE · 🇮🇳 India</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <a href="#">Privacy</a><span>·</span><a href="#">Terms</a><span>·</span><a href="#">Cookies</a><span>·</span><a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay" class="overlay"></div>
+  <aside id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping bag">
+    <div class="flex items-center justify-between border-b border-white/6 px-6 py-5 text-white">
+      <div>
+        <p class="font-display text-2xl uppercase tracking-[0.12em]">Bag</p>
+        <p id="cart-count-label" class="mt-1 text-[12px] uppercase tracking-[0.16em] text-white/50">0 items</p>
+      </div>
+      <button id="cart-close" class="rounded-full border border-white/12 px-4 py-2 text-xs uppercase tracking-[0.18em]" aria-label="Close cart">Close</button>
+    </div>
+    <div id="cart-empty" class="flex flex-1 flex-col items-center justify-center gap-4 px-8 text-center text-white/45">
+      <div class="text-6xl">◌</div>
+      <p class="text-xl text-white">Your bag is empty</p>
+      <p class="max-w-[18rem] text-sm text-white/45">Add something worth hunting for.</p>
+    </div>
+    <div id="cart-items" class="hidden flex-1 overflow-y-auto px-6 text-white"></div>
+    <div class="border-t border-white/6 px-6 py-5 text-white">
+      <div class="flex items-center justify-between text-sm uppercase tracking-[0.14em] text-white/55">
+        <span>Subtotal</span>
+        <span id="cart-subtotal" class="font-label text-2xl text-white">₹0</span>
+      </div>
+      <button id="checkout-btn" class="btn-pill mt-5 w-full rounded-full bg-[var(--brand-green)] px-6 py-4 text-white">Checkout</button>
+    </div>
+  </aside>
+
+  <div id="size-overlay" class="overlay"></div>
+  <section id="size-sheet" class="px-6 py-6 text-white">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p id="size-product-name" class="font-display text-3xl uppercase">Nitro Elite Speed</p>
+        <p id="size-product-color" class="mt-1 text-sm text-white/55">Obsidian Black / Gold</p>
+      </div>
+      <button id="size-close" class="rounded-full border border-white/12 px-4 py-2 text-xs uppercase tracking-[0.18em]" aria-label="Close size sheet">Close</button>
+    </div>
+    <p class="mt-7 text-[12px] uppercase tracking-[0.18em] text-white/50">Select UK Size</p>
+    <div id="size-grid" class="mt-5 grid grid-cols-4 gap-3"></div>
+    <button id="confirm-size" disabled class="btn-pill mt-6 w-full rounded-full bg-[var(--brand-green)] px-6 py-4 text-white opacity-30">Add To Bag</button>
+  </section>
+
+  <div id="search-overlay" class="overlay"></div>
+  <section id="search-panel" role="dialog" aria-modal="true" class="px-5 pb-8 pt-8 text-white md:px-10">
+    <div class="mx-auto max-w-[1280px]">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl text-white/60">⌕</span>
+        <input id="search-input" type="text" placeholder="Search the hunt" class="w-full border-b-[1.5px] border-white/15 bg-transparent pb-3 font-display text-[clamp(24px,4vw,44px)] uppercase outline-none" aria-label="Search products">
+        <button id="search-close" class="rounded-full border border-white/12 px-4 py-2 text-xs uppercase tracking-[0.18em]" aria-label="Close search">Close</button>
+      </div>
+      <div id="search-results" class="mt-8 flex flex-wrap gap-4"></div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./shared.js"></script>
+</body>
+</html>
