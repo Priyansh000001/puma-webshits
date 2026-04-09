@@ -2,45 +2,45 @@
   const PRODUCTS = {
     obsidian: {
       id: "obsidian",
-      name: "Nitro Elite Speed",
-      color: "Obsidian Black / Gold",
+      name: "Nitro Elite Shadow",
+      color: "Obsidian Black / Carbon",
       price: 14999,
       img: "./images/shoe_obsidian_black.png"
     },
     arctic: {
       id: "arctic",
-      name: "Nitro Elite Speed",
-      color: "Arctic White / Ice",
+      name: "Nitro Elite Glacier",
+      color: "Arctic White / Cyan Pulse",
       price: 14999,
       img: "./images/shoe_arctic_white.png"
     },
     savanna: {
       id: "savanna",
-      name: "Nitro Elite Speed",
-      color: "Savanna Gold / Earth",
+      name: "Nitro Elite Drift",
+      color: "Butter Yellow / Sand",
       price: 14999,
       img: "./images/shoe_savanna_gold.png"
     },
     velocity: {
       id: "velocity",
-      name: "Velocity Nitro 3",
-      color: "Shadow Lime / Asphalt",
+      name: "Velocity Aero Pro",
+      color: "Slate Grey / Orange Surge",
       price: 11999,
-      img: "./images/shoe_arctic_white.png"
+      img: "./images/shoe_velocity_aero.png"
     },
     fastR: {
       id: "fastR",
-      name: "Fast-R Nitro Elite 2",
-      color: "Plasma Green / Black",
+      name: "Fast-R Volt Carbon",
+      color: "Volt Nitro / Black",
       price: 17999,
-      img: "./images/shoe_obsidian_black.png"
+      img: "./images/shoe_fast_r_volt.png"
     },
     deviate: {
       id: "deviate",
-      name: "Deviate Elite 3",
-      color: "Bone White / Ember",
+      name: "Deviate Flyflow 7",
+      color: "Silver White / Graphite",
       price: 15999,
-      img: "./images/shoe_savanna_gold.png"
+      img: "./images/shoe_deviate_flyflow.png"
     }
   };
 
